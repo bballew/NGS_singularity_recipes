@@ -1,0 +1,18 @@
+BootStrap: yum
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum
+
+%labels
+    AUTHOR BBallew
+
+%post
+    yum -y groupinstall "Development Tools"
+    yum -y install autoconf automake make gcc wget perl-Data-Dumper zlib-devel bzip2 bzip2-devel xz-devel curl-devel openssl-devel
+
+    wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
+    tar xvjf htslib-1.9.tar.bz2
+    cd htslib-1.9
+    ./configure
+    make
+    make install
