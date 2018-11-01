@@ -1,0 +1,21 @@
+BootStrap: yum
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum
+
+%labels
+    AUTHOR BBallew
+
+%environment
+    PATH=/svaba/bin:$PATH
+    export PATH
+
+%post
+    yum -y groupinstall "Development Tools"
+    yum -y install zlib zlib-devel gcc autoconf automake make
+
+    git clone --recursive https://github.com/walaj/svaba
+    cd svaba
+    ./configure
+    make
+    make install
