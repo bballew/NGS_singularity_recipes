@@ -14,24 +14,22 @@ Include: yum
     mkdir -p ${SINGULARITY_ROOTFS}/scratch
 
 %environment
-    PATH=/svaba/bin:/breakdancer/build/bin:/breakdancer/perl:/manta-1.4.0.centos6_x86_64/bin:$PATH
-    export PATH
+    export PATH="/svaba/bin:/breakdancer/build/bin:/breakdancer/perl:/manta-1.4.0.centos6_x86_64/bin:$PATH"
 
 %post
     yum -y groupinstall "Development Tools"
     yum -y install sudo autoconf automake make cmake gcc wget perl-Data-Dumper zlib zlib-devel tar bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel
 
-
-    # install bwa
+    #### install bwa
 
     wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2
     tar xvjf bwa-0.7.17.tar.bz2
     cd bwa-0.7.17/
     make
     cp bwa /usr/local/bin
+    cd -
 
-
-    # install samtools
+    #### install samtools
 
     wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
     tar xvjf samtools-1.9.tar.bz2
@@ -39,26 +37,38 @@ Include: yum
     ./configure
     make
     make install
+    cd -
 
-    # install java
+    #### install java
 
     yum -y install java-1.8.0-openjdk-devel
 
-
-    # install picard
+    #### install picard
 
     wget https://github.com/broadinstitute/picard/releases/download/2.18.15/picard.jar
     mv picard.jar /bin
 
-    # install svaba
+    #### install svaba
 
     git clone --recursive https://github.com/walaj/svaba
     cd svaba
     ./configure
     make
     make install
+    cd -
 
-    # install breakdancer
+    #### install manta
+
+    wget https://github.com/Illumina/manta/releases/download/v1.4.0/manta-1.4.0.centos6_x86_64.tar.bz2
+    tar xvjf manta-1.4.0.centos6_x86_64.tar.bz2
+
+    #### install delly 
+
+    wget https://github.com/dellytools/delly/releases/download/v0.7.9/delly_v0.7.9_parallel_linux_x86_64bit
+    chmod +x delly_v0.7.9_parallel_linux_x86_64bit
+    mv delly_v0.7.9_parallel_linux_x86_64bit /usr/bin/delly
+
+    #### install breakdancer
 
     git clone --recursive https://github.com/genome/breakdancer.git
     cd breakdancer
@@ -67,10 +77,3 @@ Include: yum
     cmake .. -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/usr/local
     make
     sudo make install
-
-    # install manta
-
-    wget https://github.com/Illumina/manta/releases/download/v1.4.0/manta-1.4.0.centos6_x86_64.tar.bz2
-    tar xvjf manta-1.4.0.centos6_x86_64.tar.bz2
-
-    # install delly 
