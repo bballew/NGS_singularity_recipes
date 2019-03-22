@@ -6,6 +6,12 @@ Include: yum
 %labels
     AUTHOR BBallew
 
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/input
+    mkdir -p ${SINGULARITY_ROOTFS}/output
+    mkdir -p ${SINGULARITY_ROOTFS}/ref
+    mkdir -p ${SINGULARITY_ROOTFS}/scratch
+    
 %post
     yum -y groupinstall "Development Tools"
     yum -y install sudo autoconf automake make gcc wget perl-Data-Dumper zlib-devel bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel
@@ -18,7 +24,7 @@ Include: yum
     cd bwa-0.7.17/
     make
     cp bwa /usr/local/bin
-
+    cd -
 
     # install samtools
 
@@ -28,6 +34,7 @@ Include: yum
     ./configure
     make
     make install
+    cd -
 
     # install java
 
