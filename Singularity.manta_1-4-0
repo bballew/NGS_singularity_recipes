@@ -14,7 +14,7 @@ Include: yum
     mkdir -p ${SINGULARITY_ROOTFS}/scratch
 
 %environment
-    export PATH="/svaba/bin:/breakdancer/build/bin:/breakdancer/perl:/manta-1.4.0.centos6_x86_64/bin:$PATH"
+    export PATH="/manta-1.4.0.centos6_x86_64/bin:$PATH"
 
 %post
     yum -y groupinstall "Development Tools"
