@@ -6,6 +6,12 @@ Include: yum
 %labels
     AUTHOR BBallew
 
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/input
+    mkdir -p ${SINGULARITY_ROOTFS}/output
+    mkdir -p ${SINGULARITY_ROOTFS}/ref
+    mkdir -p ${SINGULARITY_ROOTFS}/scratch
+
 %environment
     PATH=/breakdancer/build/bin:/breakdancer/perl:$PATH
     export PATH
@@ -23,6 +29,7 @@ Include: yum
     ./configure
     make
     make install
+    cd -
 
 
     # install breakdancer
