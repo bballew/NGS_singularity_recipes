@@ -18,8 +18,10 @@ Include: yum
 
 %post
     yum -y groupinstall "Development Tools"
-    yum -y install sudo ncurses-devel zlib zlib-devel gcc gmake cmake autoconf automake make wget bzip2 bzip2-devel xz-devel curl-devel openssl-devel perl-App-cpanminus
-    cpanm Statistics::Descriptive GD::Graph::histogram
+    yum -y install sudo autoconf automake make cmake gcc wget perl-Data-Dumper zlib zlib-devel tar bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel perl-App-cpanminus                   
+
+    cpanm Statistics::Descriptive
+    cpanm GD::Graph::histogram
 
     # install samtools
 
