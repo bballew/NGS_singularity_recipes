@@ -19,6 +19,7 @@ Include: yum
 %post
     yum -y groupinstall "Development Tools"
     yum -y install sudo ncurses-devel zlib zlib-devel gcc gmake cmake autoconf automake make wget bzip2 bzip2-devel xz-devel curl-devel openssl-devel
+    sudo yum -y install perl-Statistics-Descriptive
 
 
     # install samtools
