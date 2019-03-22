@@ -6,6 +6,12 @@ Include: yum
 %labels
     AUTHOR BBallew
 
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/input
+    mkdir -p ${SINGULARITY_ROOTFS}/output
+    mkdir -p ${SINGULARITY_ROOTFS}/ref
+    mkdir -p ${SINGULARITY_ROOTFS}/scratch
+
 %environment
     PATH=/svaba/bin:$PATH
     export PATH
