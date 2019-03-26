@@ -24,3 +24,5 @@ Include: yum
 
     wget https://github.com/Illumina/manta/releases/download/v1.4.0/manta-1.4.0.centos6_x86_64.tar.bz2
     tar xvjf manta-1.4.0.centos6_x86_64.tar.bz2
+
+    yum clean all
