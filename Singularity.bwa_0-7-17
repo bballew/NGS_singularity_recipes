@@ -24,3 +24,5 @@ Include: yum
     cd bwa-0.7.17/
     make
     cp bwa /usr/local/bin
+
+    yum clean all
