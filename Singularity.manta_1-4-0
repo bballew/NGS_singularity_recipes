@@ -18,7 +18,7 @@ Include: yum
 
 %post
     yum -y groupinstall "Development Tools"
-    yum -y install sudo autoconf automake make cmake gcc wget perl-Data-Dumper zlib zlib-devel tar bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel
+    yum -y install wget tar bzip2 bzip2-devel
 
     #### install manta
 
