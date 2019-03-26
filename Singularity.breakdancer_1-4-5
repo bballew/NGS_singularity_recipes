@@ -42,3 +42,4 @@ Include: yum
     make
     sudo make install
 
+    yum clean all
