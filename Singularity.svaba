@@ -25,3 +25,5 @@ Include: yum
     ./configure
     make
     make install
+
+    yum clean all
