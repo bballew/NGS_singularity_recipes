@@ -45,3 +45,5 @@ Include: yum
 
     wget https://github.com/broadinstitute/picard/releases/download/2.18.15/picard.jar
     mv picard.jar /bin
+
+    yum clean all
