@@ -18,11 +18,10 @@ Include: yum
 
 %post
     yum -y groupinstall "Development Tools"
-    yum -y install sudo autoconf automake make cmake gcc wget perl-Data-Dumper zlib zlib-devel tar bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel perl-App-cpanminus                   
-
-    cpanm Statistics::Descriptive
-    cpanm GD::Graph::histogram
-
+    yum -y install sudo autoconf automake make cmake gcc wget perl-Data-Dumper zlib zlib-devel tar bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel
+    yum -y install epel-release perl perl-CPAN perl-App-cpanminus perl-Archive-Tar perl-Want perl-TermReadKey
+    yum -y install perl-Statistics-Descriptive
+    
     # install samtools
 
     wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
@@ -32,7 +31,6 @@ Include: yum
     make
     make install
     cd -
-
 
     # install breakdancer
 
