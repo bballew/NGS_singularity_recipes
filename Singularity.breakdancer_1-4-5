@@ -22,7 +22,7 @@ Include: yum
     yum -y install epel-release perl perl-CPAN perl-App-cpanminus perl-Archive-Tar perl-Want perl-TermReadKey gd gd-devel
     #yum -y install perl-Statistics-Descriptive perl-GD-Graph-histogram
     
-    cpanm Stastistics::Descriptive
+    cpanm Statistics::Descriptive
     cpanm GD::Graph::histogram
     
     # install samtools
