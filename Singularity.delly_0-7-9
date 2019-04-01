@@ -1,7 +1,7 @@
 BootStrap: yum
-#OSVersion: 6
-MirrorURL: http://vault.centos.org/6.9/os/x86_64/
-#MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+OSVersion: 7
+#MirrorURL: http://vault.centos.org/6.9/os/x86_64/
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
 Include: yum
 
 %labels
@@ -29,8 +29,13 @@ Include: yum
 
     #### install delly 
 
-    wget https://github.com/dellytools/delly/releases/download/v0.7.9/delly_v0.7.9_parallel_linux_x86_64bit
-    chmod +x delly_v0.7.9_parallel_linux_x86_64bit
-    mv delly_v0.7.9_parallel_linux_x86_64bit /usr/bin/delly
+    wget https://github.com/dellytools/delly.git
+    cd delly/
+    make all
+    cd -
+
+    #wget https://github.com/dellytools/delly/releases/download/v0.7.9/delly_v0.7.9_parallel_linux_x86_64bit
+    #chmod +x delly_v0.7.9_parallel_linux_x86_64bit
+    #mv delly_v0.7.9_parallel_linux_x86_64bit /usr/bin/delly
 
     yum clean all
