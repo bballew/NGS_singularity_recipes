@@ -1,6 +1,7 @@
 BootStrap: yum
-OSVersion: 6
-MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+#OSVersion: 6
+MirrorURL: http://vault.centos.org/6.9/os/x86_64/
+#MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
 Include: yum
 
 %labels
