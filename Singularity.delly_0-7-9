@@ -29,7 +29,7 @@ Include: yum
 
     #### install delly 
 
-    wget https://github.com/dellytools/delly.git
+    git clone --recursive https://github.com/dellytools/delly.git
     cd delly/
     make all
     cd -
