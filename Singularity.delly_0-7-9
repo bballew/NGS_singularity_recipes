@@ -15,16 +15,16 @@ Include: yum
     mkdir -p ${SINGULARITY_ROOTFS}/scratch
 
 %post
-    #### rebuild rpm database ####
-    # if this image is built in a VM running centos 6.9 or 6.10, it builds successfully
-    # if it's built in a VM with centos 7 or on singularity hub, the rpm database is corrupt
-    # this should correct that issue
-    rm -f /var/lib/rpm/__db*
-    rpm -vv --rebuilddb > /tmp/rpmrebuilddb.log 2>&1
+   # #### rebuild rpm database ####
+   # # if this image is built in a VM running centos 6.9 or 6.10, it builds successfully
+   # # if it's built in a VM with centos 7 or on singularity hub, the rpm database is corrupt
+   # # this should correct that issue
+   # rm -f /var/lib/rpm/__db*
+   # rpm -vv --rebuilddb > /tmp/rpmrebuilddb.log 2>&1
 
 
     yum -y groupinstall "Development Tools"
-    yum -y install wget
+    yum -y install autoconf automake make gcc wget perl-Data-Dumper zlib-devel bzip2 bzip2-devel xz-devel curl-devel openssl-devel ncurses-devel boost boost-thread boost-devel
 
 
     #### install delly 
