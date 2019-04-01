@@ -14,6 +14,9 @@ Include: yum
     mkdir -p ${SINGULARITY_ROOTFS}/ref
     mkdir -p ${SINGULARITY_ROOTFS}/scratch
 
+%environment
+    export PATH="/delly/src/:$PATH"
+
 %post
    # #### rebuild rpm database ####
    # # if this image is built in a VM running centos 6.9 or 6.10, it builds successfully
