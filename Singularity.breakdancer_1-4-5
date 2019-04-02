@@ -11,6 +11,7 @@ Include: yum
     mkdir -p ${SINGULARITY_ROOTFS}/output
     mkdir -p ${SINGULARITY_ROOTFS}/ref
     mkdir -p ${SINGULARITY_ROOTFS}/scratch
+    mkdir -p ${SINGULARITY_ROOTFS}/exec
 
 %environment
     PATH=/breakdancer/build/bin:/breakdancer/perl:$PATH
