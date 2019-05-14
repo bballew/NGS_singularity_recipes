@@ -22,7 +22,7 @@ Include: yum
     git clone https://github.com/dnanexus-rnd/GLnexus.git
     cd /GLnexus
     git fetch --tags origin && git checkout "$git_revision" && git submodule update --init --recursive
-    cmake -DCMAKE_BUILD_TYPE=$build_type . && make -j4
+    cmake3 -DCMAKE_BUILD_TYPE=$build_type . && make -j4
     
     
 # Dockerfile for building GLnexus. The resulting container image runs the unit tests
