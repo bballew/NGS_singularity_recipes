@@ -1,5 +1,5 @@
-BootStrap: shub
-From: singularityhub/ubuntu
+BootStrap: docker
+From: ubuntu
 
 %labels
     AUTHOR BBallew
