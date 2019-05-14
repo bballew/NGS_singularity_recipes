@@ -15,8 +15,9 @@ Include: yum
 
 %post
     #yum -y groupinstall "Development Tools"
-    yum -y install curl curl-devel wget ca-certificates git-core less netbase g++ cmake autoconf automake make gcc file devtoolset-7-valgrind jemalloc-dev
-    zlib-devel bzip2-devel snappy-devel xz-devel libzstd-devel python-pyvcf
+    yum -y install curl curl-devel wget ca-certificates git-core less netbase \
+        g++ cmake autoconf automake make gcc file devtoolset-7-valgrind jemalloc-dev \
+        zlib-devel bzip2-devel snappy-devel xz-devel libzstd-devel python-pyvcf
     
     git clone https://github.com/dnanexus-rnd/GLnexus.git
     cd /GLnexus
